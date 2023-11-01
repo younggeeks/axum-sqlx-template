@@ -167,7 +167,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "axum-social-with-tests"
+name = "axum-sqlx-template"
 version = "0.1.0"
 dependencies = [
  "anyhow",
