@@ -9,9 +9,13 @@ async fn main() -> anyhow::Result<()> {
         .max_connections(20)
         .connect(&database_url)
         .await
-        .context("Failed to connect to DATABASE_UR")?;
+        .context(format!(
+            "Failed to connect to DATABASE_URL {}",
+            database_url
+        ))?;
 
+    println!("Starting Migration");
     sqlx::migrate!().run(&db).await?;
-
+    println!("Migration done");
     serve(db).await
 }
